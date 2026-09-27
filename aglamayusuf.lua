@@ -200,7 +200,7 @@ local Options = Library.Options
 local Toggles = Library.Toggles
 
 local Window = Library:CreateWindow({
-    Title = '<font color="#4B0082"><b>Nigger</b></font><font color="#ffffff"><b>HUB</b></font>',
+    Title = '<font color="#4B0082"><b>Keety</b></font><font color="#ffffff"><b>HUB</b></font>',
     Center = true,
     AutoShow = true,
     TabPadding = 8,
@@ -380,7 +380,7 @@ WeaponVisualBox:AddToggle("BulletTracers", {
 
 WeaponVisualBox:AddDropdown("TracerStyle", {
     Text = "Tracer Style",
-    Values = {"Block", "Cylinder (Obelius)"},
+    Values = {"Block", "Cylinder"},
     Default = "Block",
 })
 
@@ -588,39 +588,39 @@ RunService.RenderStepped:Connect(function()
 end)
 
 -- =========================================================================
--- [ COMBAT TAB - FSELIK MODE ]
+-- [ COMBAT TAB - KEETY MODE ]
 -- =========================================================================
 
-local CubeCombatBox = Tabs.Combat:AddLeftGroupbox("FSELIK MODE", "crosshair")
+local CubeCombatBox = Tabs.Combat:AddLeftGroupbox("KEETY MODE", "crosshair")
 
-CubeCombatBox:AddToggle("SpongyMainToggle", {
-    Text = "FSELIK MODE",
+CubeCombatBox:AddToggle("KeetyMainToggle", {
+    Text = "KEETY MODE",
     Default = false,
-}):AddKeyPicker("SpongyKeybind", {
-    Text = "FSELIK MODE Key",
+}):AddKeyPicker("KeetyKeybind", {
+    Text = "KEETY MODE Key",
     Default = "None",
     Mode = "Toggle",
 })
 
-local SpongyDepBox = CubeCombatBox:AddDependencyBox()
+local KeetyDepBox = CubeCombatBox:AddDependencyBox()
 
-SpongyDepBox:AddToggle("CubeAimbotEnabled", { Text = "Enable Cube Smart Aimbot", Default = false })
-SpongyDepBox:AddToggle("CubeVisibleCheck", { Text = "Enable Visible Check", Default = false })
+KeetyDepBox:AddToggle("CubeAimbotEnabled", { Text = "Enable Cube Smart Aimbot", Default = false })
+KeetyDepBox:AddToggle("CubeVisibleCheck", { Text = "Enable Visible Check", Default = false })
 
-SpongyDepBox:AddDropdown("CubeHitPart", {
+KeetyDepBox:AddDropdown("CubeHitPart", {
     Text = "Target Hit Selection",
     Values = {"Head", "HumanoidRootPart", "UpperTorso", "LowerTorso"},
     Default = "Head",
 })
 
-SpongyDepBox:AddDivider()
+KeetyDepBox:AddDivider()
 
-SpongyDepBox:AddToggle("CubeTriggerbot", { Text = "Enable Triggerbot", Default = false })
-SpongyDepBox:AddSlider("CubeTriggerbotDelay", { Text = "Triggerbot Delay", Default = 0.01, Min = 0, Max = 1, Rounding = 3 })
+KeetyDepBox:AddToggle("CubeTriggerbot", { Text = "Enable Triggerbot", Default = false })
+KeetyDepBox:AddSlider("CubeTriggerbotDelay", { Text = "Triggerbot Delay", Default = 0.01, Min = 0, Max = 1, Rounding = 3 })
 
-SpongyDepBox:AddDivider()
+KeetyDepBox:AddDivider()
 
-SpongyDepBox:AddToggle("BulletImpactV1Enabled", {
+KeetyDepBox:AddToggle("BulletImpactV1Enabled", {
     Text = "Cube Checker",
     Default = false,
 }):AddColorPicker("BulletImpactV1Color", {
@@ -628,12 +628,12 @@ SpongyDepBox:AddToggle("BulletImpactV1Enabled", {
     Title = "Cube Checker Color",
 })
 
-SpongyDepBox:AddToggle("BulletImpactV1Rainbow", {
+KeetyDepBox:AddToggle("BulletImpactV1Rainbow", {
     Text = "Cube Checker Rainbow Mode",
     Default = false,
 })
 
-SpongyDepBox:AddSlider("BulletImpactV1Size", {
+KeetyDepBox:AddSlider("BulletImpactV1Size", {
     Text = "Impact Size",
     Default = 1.5,
     Min = 0.5,
@@ -642,7 +642,7 @@ SpongyDepBox:AddSlider("BulletImpactV1Size", {
     Suffix = "studs"
 })
 
-SpongyDepBox:AddSlider("BulletImpactV1Dist", {
+KeetyDepBox:AddSlider("BulletImpactV1Dist", {
     Text = "Max Ray Distance",
     Default = 20,
     Min = 1,
@@ -651,22 +651,22 @@ SpongyDepBox:AddSlider("BulletImpactV1Dist", {
     Suffix = "m"
 })
 
-SpongyDepBox:AddDivider()
+KeetyDepBox:AddDivider()
 
-SpongyDepBox:AddToggle("ShowTargetPlayer", { Text = "Show Target Player", Default = false })
+KeetyDepBox:AddToggle("ShowTargetPlayer", { Text = "Show Target Player", Default = false })
 
-SpongyDepBox:AddDropdown("ShowTargetMode", {
+KeetyDepBox:AddDropdown("ShowTargetMode", {
     Text = "Target Display Mode",
     Values = {"Line", "Crosshair"},
     Default = "Crosshair",
 })
 
-SpongyDepBox:AddLabel("Line Color"):AddColorPicker("ShowTargetLineColor", {
+KeetyDepBox:AddLabel("Line Color"):AddColorPicker("ShowTargetLineColor", {
     Default = Color3.fromRGB(0, 255, 255),
     Title = "Line Color",
 })
 
-SpongyDepBox:AddLabel("Crosshair Color"):AddColorPicker("ShowTargetCrosshairColor", {
+KeetyDepBox:AddLabel("Crosshair Color"):AddColorPicker("ShowTargetCrosshairColor", {
     Default = Color3.fromRGB(0, 255, 255),
     Title = "Crosshair Color",
 })
@@ -718,7 +718,7 @@ task.spawn(function()
     end)
 end)
 
-SpongyDepBox:SetupDependencies({ {Toggles.SpongyMainToggle, true} })
+KeetyDepBox:SetupDependencies({ {Toggles.KeetyMainToggle, true} })
 
 -- =========================================================================
 -- [ HIT SOUND ]
@@ -945,7 +945,7 @@ end)
 task.spawn(function()
     local CoreGui = game:GetService("CoreGui")
     local crosshairGui = Instance.new("ScreenGui")
-    crosshairGui.Name = "BloxStrike_GdcScopeCrosshair"
+    crosshairGui.Name = "BloxStrike_ScopeCrosshair"
     crosshairGui.ResetOnSpawn = false
     pcall(function() crosshairGui.Parent = CoreGui end)
 
@@ -1212,13 +1212,13 @@ local function UpdateSkybox(name)
     for _, v in pairs(Lighting:GetChildren()) do
         if v:IsA("Atmosphere") or v:IsA("Clouds") then v:Destroy() end
     end
-    local sky = Lighting:FindFirstChild("Spongy_Sky")
+    local sky = Lighting:FindFirstChild("Keety_Sky")
     if not sky then
         for _, v in pairs(Lighting:GetChildren()) do
             if v:IsA("Sky") then v:Destroy() end
         end
         sky = Instance.new("Sky")
-        sky.Name = "Spongy_Sky"
+        sky.Name = "Keety_Sky"
         sky.Parent = Lighting
     end
     sky.SkyboxBk = data.SkyboxBk
@@ -1243,12 +1243,12 @@ local function UpdateWeather(wType)
     if WeatherPart then WeatherPart:Destroy() WeatherPart = nil end
     if GroundPart then GroundPart:Destroy() GroundPart = nil end
     for _, v in pairs(Workspace:GetChildren()) do
-        if v.Name == "Spongy_RainDrop" then v:Destroy() end
+        if v.Name == "Keety_RainDrop" then v:Destroy() end
     end
     if wType == "None" then return end
 
     WeatherPart = Instance.new("Part")
-    WeatherPart.Name = "Spongy_Weather_Sky"
+    WeatherPart.Name = "Keety_Weather_Sky"
     WeatherPart.Size = Vector3.new(100, 1, 100)
     WeatherPart.Transparency = 1
     WeatherPart.Anchored = true
@@ -1260,7 +1260,7 @@ local function UpdateWeather(wType)
     SkyEmitter.Enabled = true
 
     GroundPart = Instance.new("Part")
-    GroundPart.Name = "Spongy_Weather_Ground"
+    GroundPart.Name = "Keety_Weather_Ground"
     GroundPart.Size = Vector3.new(50, 1, 50)
     GroundPart.Transparency = 1
     GroundPart.Anchored = true
@@ -3046,15 +3046,15 @@ local function isVisible(target)
     return true
 end
 
-local function getSpongyActive()
-    local spongyActive = Toggles.SpongyMainToggle and Toggles.SpongyMainToggle.Value
-    if Options.SpongyKeybind then
-        local kState = Options.SpongyKeybind:GetState()
-        if Options.SpongyKeybind.Value ~= "None" and Options.SpongyKeybind.Value ~= "Always" and Options.SpongyKeybind.Value ~= "Toggle" then
-            spongyActive = kState
+local function getKeetyActive()
+    local keetyActive = Toggles.KeetyMainToggle and Toggles.KeetyMainToggle.Value
+    if Options.KeetyKeybind then
+        local kState = Options.KeetyKeybind:GetState()
+        if Options.KeetyKeybind.Value ~= "None" and Options.KeetyKeybind.Value ~= "Always" and Options.KeetyKeybind.Value ~= "Toggle" then
+            keetyActive = kState
         end
     end
-    return spongyActive
+    return keetyActive
 end
 
 local function isEnemy(char)
@@ -3076,7 +3076,7 @@ local function FindAllTargets()
     local sDist, sClose = math.huge, nil
     local rDist, rClose = math.huge, nil
     local cDist, cClose = math.huge, nil
-    local spongyActive = getSpongyActive()
+    local keetyActive = getKeetyActive()
 
     -- Сканируем Workspace.Characters напрямую
     local charsFolder = Workspace:FindFirstChild("Characters")
@@ -3112,8 +3112,8 @@ local function FindAllTargets()
         end
     end
 
-    -- Spongy.cc cube target
-    if spongyActive then
+    -- Keety cube target
+    if keetyActive then
         local chosenPartName = Options.CubeHitPart.Value or "Head"
 
         -- Проверяем locked target
@@ -3251,8 +3251,8 @@ ShowTargetConnectorLine.Visible = false
 RunService.RenderStepped:Connect(function()
     pcall(function()
         local cam = Workspace.CurrentCamera
-        local spongyActive = getSpongyActive()
-        local showTargetEnabled = spongyActive and (Toggles.ShowTargetPlayer and Toggles.ShowTargetPlayer.Value)
+        local keetyActive = getKeetyActive()
+        local showTargetEnabled = keetyActive and (Toggles.ShowTargetPlayer and Toggles.ShowTargetPlayer.Value)
         local targetMode = Options.ShowTargetMode and Options.ShowTargetMode.Value or "Crosshair"
         local absoluteClosestPart = nil
         local minAbsoluteDist = math.huge
@@ -3355,10 +3355,10 @@ RunService.RenderStepped:Connect(function()
 
     if frameCounter % 2 == 0 then FindAllTargets() end
 
-    local spongyActive = getSpongyActive()
+    local keetyActive = getKeetyActive()
     local targetToPull = nil
 
-    if spongyActive and CubeSmartTarget then
+    if keetyActive and CubeSmartTarget then
         targetToPull = CubeSmartTarget
     end
 
@@ -3399,8 +3399,8 @@ RunService.RenderStepped:Connect(function()
     pcall(function()
         local cam = Workspace.CurrentCamera
         if not cam then return end
-        local spongyActive = getSpongyActive()
-        local enabled = spongyActive and (Toggles.BulletImpactV1Enabled and Toggles.BulletImpactV1Enabled.Value)
+        local keetyActive = getKeetyActive()
+        local enabled = keetyActive and (Toggles.BulletImpactV1Enabled and Toggles.BulletImpactV1Enabled.Value)
         BulletImpactV1Part.Parent = enabled and Workspace or nil
 
         if enabled then
@@ -3423,7 +3423,7 @@ RunService.RenderStepped:Connect(function()
             if result then
                 BulletImpactV1Part.Parent = Workspace
                 BulletImpactV1Part.CFrame = CFrame.lookAt(result.Position + (result.Normal * 0.02), result.Position + result.Normal)
-                if CubeSmartTarget and spongyActive and Toggles.CubeAimbotEnabled.Value then
+                if CubeSmartTarget and keetyActive and Toggles.CubeAimbotEnabled.Value then
                     BulletImpactV1Part.Color = Color3.fromRGB(0, 255, 0)
                     selectionBox.Color3 = Color3.fromRGB(0, 255, 0)
                 else
@@ -3559,9 +3559,9 @@ local function createTracerBean(startPos, endPos)
 
     local duration = Options.TracerTime and Options.TracerTime.Value or 2
     local beamPart = Instance.new("Part")
-    beamPart.Name = "Spongy_Tracer"
+    beamPart.Name = "Keety_Tracer"
 
-    if style == "Cylinder (Obelius)" then
+    if style == "Cylinder" then
         beamPart.Shape = Enum.PartType.Cylinder
         beamPart.Size = Vector3.new((startPos - endPos).Magnitude, 0.12, 0.12)
         beamPart.CFrame = CFrame.new(startPos, endPos) * CFrame.new(0, 0, -beamPart.Size.X / 2) * CFrame.Angles(0, math.rad(90), 0)
@@ -3598,7 +3598,7 @@ local function createBulletImpact(hitPos)
     if not Toggles.BulletImpacts or not Toggles.BulletImpacts.Value then return end
     if not hitPos then return end
     local impactPart = Instance.new("Part")
-    impactPart.Name = "Spongy_Impact"
+    impactPart.Name = "Keety_Impact"
     impactPart.Size = Vector3.new(0.6, 0.6, 0.6)
     impactPart.Shape = Enum.PartType.Block
     impactPart.Position = hitPos
@@ -3706,8 +3706,8 @@ task.spawn(function()
     while true do
         task.wait(Options.CubeTriggerbotDelay and Options.CubeTriggerbotDelay.Value or 0.01)
         pcall(function()
-            local spongyActive = getSpongyActive()
-            if spongyActive and (Toggles.CubeTriggerbot and Toggles.CubeTriggerbot.Value) then
+            local keetyActive = getKeetyActive()
+            if keetyActive and (Toggles.CubeTriggerbot and Toggles.CubeTriggerbot.Value) then
                 local cam = Workspace.CurrentCamera
                 if not cam then return end
                 local shouldShoot = false
@@ -3764,7 +3764,7 @@ pcall(function()
     if not SendFunc then return end
     oldshoot = hookfunction(SendFunc, function(...)
         local args = {...}
-        local spongyActive = getSpongyActive()
+        local keetyActive = getKeetyActive()
 
         if args[1] and type(args[1].Bullets) == "table" then
             for _, bullet in pairs(args[1].Bullets) do
@@ -3773,7 +3773,7 @@ pcall(function()
                         local targetPart = nil
                         if Toggles.Ragebot and Toggles.Ragebot.Value and RageTarget then
                             targetPart = RageTarget
-                        elseif spongyActive and Toggles.CubeAimbotEnabled and Toggles.CubeAimbotEnabled.Value and CubeSmartTarget then
+                        elseif keetyActive and Toggles.CubeAimbotEnabled and Toggles.CubeAimbotEnabled.Value and CubeSmartTarget then
                             local chosenPartName = Options.CubeHitPart and Options.CubeHitPart.Value or "Head"
                             targetPart = CubeSmartTarget.Parent and CubeSmartTarget.Parent:FindFirstChild(chosenPartName) or CubeSmartTarget
                         elseif Toggles.SilentAim and Toggles.SilentAim.Value and SilentTarget then
@@ -3871,7 +3871,7 @@ local function isLocalPlayerObject(obj)
     local char = LP.Character
     if char and (obj == char or obj:IsDescendantOf(char)) then return true end
     if obj:IsDescendantOf(Workspace.CurrentCamera) then return true end
-    if obj.Name == "CubeChecker_Physical" or obj.Name:find("Spongy_") then return true end
+    if obj.Name == "CubeChecker_Physical" or obj.Name:find("Keety_") then return true end
     return false
 end
 
@@ -3916,16 +3916,16 @@ RunService.RenderStepped:Connect(function()
         Lighting.ColorShift_Bottom = skyColor
         Lighting.ColorShift_Top = skyColor
         Lighting.FogColor = skyColor
-        local atmosphere = Lighting:FindFirstChild("KamibloxSky")
+        local atmosphere = Lighting:FindFirstChild("KeetySky")
         if not atmosphere then
             atmosphere = Instance.new("Atmosphere")
-            atmosphere.Name = "KamibloxSky"
+            atmosphere.Name = "KeetySky"
             atmosphere.Parent = Lighting
         end
         atmosphere.Color = skyColor
         atmosphere.Decay = skyColor
     else
-        local atmosphere = Lighting:FindFirstChild("KamibloxSky")
+        local atmosphere = Lighting:FindFirstChild("KeetySky")
         if atmosphere then atmosphere:Destroy() end
     end
 end)
@@ -4965,9 +4965,9 @@ SaveManager:SetLibrary(Library)
 SaveManager:IgnoreThemeSettings()
 SaveManager:SetIgnoreIndexes({ "MenuKeybind" })
 
-ThemeManager:SetFolder("spongy")
-SaveManager:SetFolder("spongy/bloxstrike")
-SaveManager:SetSubFolder("spongy")
+ThemeManager:SetFolder("keety")
+SaveManager:SetFolder("keety/bloxstrike")
+SaveManager:SetSubFolder("keety")
 
 SaveManager:BuildConfigSection(Tabs.Settings)
 ThemeManager:ApplyToTab(Tabs.Settings)
